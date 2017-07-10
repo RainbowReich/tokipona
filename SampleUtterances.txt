@@ -1,0 +1,9 @@
+GetWordIntent give me a word
+GetWordIntent give me a new word
+GetWordIntent say a new word
+GetWordIntent say a word
+GetWordIntent tell me a word
+GetWordIntent tell a word
+GetWordIntent tell me a new word
+GetWordIntent word
+GetWordIntent new word
