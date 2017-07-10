@@ -1,7 +1,5 @@
 import random
 
-APPLICATION = "amzn1.ask.skill.1c223c43-5393-44c0-8587-35f843e7175f"
-
 VOCAB = {
     "a": [
     { "category": "interjection",
@@ -1512,10 +1510,6 @@ VOCAB = {
 }
 
 def lambda_handler(event, context):
-    if (event['session']['application']['applicationId']
- != APPLICATION):
-        raise ValueError("Unauthorized application.")
-
     request_type = event['request']['type']
     if (request_type == "LaunchRequest"):
         return on_launch(event, context)
@@ -1532,7 +1526,7 @@ def on_launch(event, context):
 def get_welcome_response:
     return build_response({}, build_speechlet_response("Toki Pona Words",
         "This is the Toki Pona Words skill." +
-        "I will give you a random Toki Pona word out of the entirety of the language and then I will give you its definition."
+        "I will give you a random Toki Pona word out of the entirety of the language and then I will give you its definition.",
         "Ask me to give you a random Toki Pona word.", False))
 
 def get_random_word:
