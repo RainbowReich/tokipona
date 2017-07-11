@@ -1518,18 +1518,18 @@ def lambda_handler(event, context):
 
 def on_intent(event, context):
     if (event['request']['intent']['name'] == "GetWordIntent"):
-        build_response({},build_speechlet_response("Toki Pona Words", get_random_word(), "", True))
+        return build_response({},build_speechlet_response("Toki Pona Words", get_random_word(), "", True))
 
 def on_launch(event, context):
     return get_welcome_response()
 
-def get_welcome_response:
+def get_welcome_response():
     return build_response({}, build_speechlet_response("Toki Pona Words",
         "This is the Toki Pona Words skill." +
         "I will give you a random Toki Pona word out of the entirety of the language and then I will give you its definition.",
         "Ask me to give you a random Toki Pona word.", False))
 
-def get_random_word:
+def get_random_word():
     word = random.choice(VOCAB.keys())
     slot = random.choice(VOCAB[word])
     category = slot['category']
