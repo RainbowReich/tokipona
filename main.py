@@ -1526,8 +1526,8 @@ def on_launch(event, context):
 def get_welcome_response():
     return build_response({}, build_speechlet_response("Toki Pona Words",
         "This is the Toki Pona Words skill." +
-        "I will give you a random Toki Pona word out of the entirety of the language and then I will give you its definition.",
-        "Ask me to give you a random Toki Pona word.", False))
+        "I will give you a random Toki Pona word out of the entirety of the language and then I will give you its definition. For example, you can say: Give me a new word",
+        "Ask me to give you a random Toki Pona word. For example: Give me a new word.", False))
 
 def get_random_word():
     word = random.choice(VOCAB.keys())
