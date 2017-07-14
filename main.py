@@ -1515,10 +1515,14 @@ def lambda_handler(event, context):
         return on_launch(event, context)
     elif (request_type == "IntentRequest"):
         return on_intent(event, context)
+    elif (request_type == "SessionEndedRequest" or request_type == "SessionStartedRequest"):
+        print event
 
 def on_intent(event, context):
     if (event['request']['intent']['name'] == "GetWordIntent"):
         return build_response({},build_speechlet_response("Toki Pona Words", get_random_word(), "", True))
+    elif (event['request']['intent']['name'] == "AMAZON.HelpIntent"):
+        return build_response({},build_speechlet_response("Toki Pona Words", "This is the Toki Pona Amazon Alexa Skill. My only functionality is to speak a random Toki Pona word along with its definition in English when requested. An example request is: Alexa, ask tokipona skill to give a new word.","This is the Toki Pona Amazon Alexa Skill. My only functionality is to speak a random Toki Pona word along with its definition in English when requested. An example request is: Alexa, ask tokipona skill to give a new word.", False))
 
 def on_launch(event, context):
     return get_welcome_response()
