@@ -1523,7 +1523,13 @@ def on_intent(event, context):
         return build_response({},build_speechlet_response("Toki Pona Words", get_random_word(), "", True))
     elif (event['request']['intent']['name'] == "AMAZON.HelpIntent"):
         return build_response({},build_speechlet_response("Toki Pona Words", "This is the Toki Pona Amazon Alexa Skill. My only functionality is to speak a random Toki Pona word along with its definition in English when requested. An example request is: Alexa, ask tokipona skill to give a new word.","This is the Toki Pona Amazon Alexa Skill. My only functionality is to speak a random Toki Pona word along with its definition in English when requested. An example request is: Alexa, ask tokipona skill to give a new word.", False))
-
+    elif (event['request']['intent']['name'] == "AMAZON.StopIntent"):
+        return build_response({}, build_speechlet_response("Random Esperanto Word",
+        "Tokipona skill has closed.","",True))
+    elif (event['request']['intent']['name'] == "AMAZON.CancelIntent"):
+        return build_response({}, build_speechlet_response("Random Esperanto Word",
+        "Tokipona skill has closed.","",True))
+    
 def on_launch(event, context):
     return get_welcome_response()
 
